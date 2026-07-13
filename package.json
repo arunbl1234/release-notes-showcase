@@ -1,0 +1,10 @@
+{
+  "name": "release-notes-showcase",
+  "version": "1.0.0",
+  "description": "Demo task manager app used to showcase automated functionality/performance changelog categorization.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}
