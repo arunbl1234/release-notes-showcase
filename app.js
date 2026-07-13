@@ -5,9 +5,10 @@ const searchInput = document.getElementById('searchInput');
 
 let tasks = [];
 let searchTerm = '';
+let debounceTimer = null;
 
 function renderTasks() {
-  taskList.innerHTML = '';
+  const fragment = document.createDocumentFragment();
   const filtered = [];
   for (let i = 0; i < tasks.length; i++) {
     if (tasks[i].toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -26,8 +27,11 @@ function renderTasks() {
     });
 
     li.appendChild(removeBtn);
-    taskList.appendChild(li);
+    fragment.appendChild(li);
   }
+
+  taskList.innerHTML = '';
+  taskList.appendChild(fragment);
 }
 
 function addTask(text) {
@@ -54,8 +58,11 @@ taskInput.addEventListener('keydown', function (e) {
 });
 
 searchInput.addEventListener('input', function () {
-  searchTerm = searchInput.value;
-  renderTasks();
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(function () {
+    searchTerm = searchInput.value;
+    renderTasks();
+  }, 150);
 });
 
 renderTasks();
