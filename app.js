@@ -8,18 +8,21 @@ let searchTerm = '';
 
 function renderTasks() {
   taskList.innerHTML = '';
-  const filtered = tasks.filter(function (t) {
-    return t.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  const filtered = [];
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].toLowerCase().includes(searchTerm.toLowerCase())) {
+      filtered.push({ text: tasks[i], originalIndex: i });
+    }
+  }
 
   for (let i = 0; i < filtered.length; i++) {
     const li = document.createElement('li');
-    li.textContent = filtered[i];
+    li.textContent = filtered[i].text;
 
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
     removeBtn.addEventListener('click', function () {
-      removeTask(i);
+      removeTask(filtered[i].originalIndex);
     });
 
     li.appendChild(removeBtn);
