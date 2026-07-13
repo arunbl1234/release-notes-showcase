@@ -1,0 +1,18 @@
+changelog:
+  categories:
+    - title: '⚙️ Functionality Changes'
+      labels:
+        - feature
+        - enhancement
+        - fix
+        - bug
+        - functionality
+    - title: '⚡ Performance Improvements'
+      labels:
+        - performance
+        - perf
+        - optimization
+        - speed
+    - title: '🧰 Maintenance'
+      labels:
+        - '*'
