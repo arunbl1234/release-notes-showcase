@@ -3,7 +3,7 @@ const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
 const searchInput = document.getElementById('searchInput');
 
-let tasks = [];
+let tasks = [];  
 let tasksLower = [];
 let searchTerm = '';
 let debounceTimer = null;
