@@ -8,6 +8,8 @@ let tasksLower = [];
 let searchTerm = '';
 let debounceTimer = null;
 
+
+
 function renderTasks() {
   const fragment = document.createDocumentFragment();
   const filtered = [];
