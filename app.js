@@ -34,8 +34,6 @@ function renderTasks() {
     fragment.appendChild(li);
   }
 
-  taskList.innerHTML = '';
-  taskList.appendChild(fragment);
 }
 
 function addTask(text) {
