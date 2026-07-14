@@ -36,20 +36,14 @@ jobs:
           next="v${major}.${minor}.${patch}"
           echo "next=$next" >> "$GITHUB_OUTPUT"
 
-      - name: Generate categorized release notes
+      - name: Generate AI-analyzed release notes
         id: notes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          latest="${{ steps.get_tag.outputs.latest }}"
-          next="${{ steps.next_version.outputs.next }}"
-          if [ "$latest" = "v0.0.0" ]; then
-            gh api "repos/${{ github.repository }}/releases/generate-notes" \
-              -f tag_name="$next" --jq '.body' > release_notes.md
-          else
-            gh api "repos/${{ github.repository }}/releases/generate-notes" \
-              -f tag_name="$next" -f previous_tag_name="$latest" --jq '.body' > release_notes.md
-          fi
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          REPO: ${{ github.repository }}
+          LATEST_TAG: ${{ steps.get_tag.outputs.latest }}
+        run: node .github/scripts/generate-release-notes.js
 
       - name: Create GitHub release
         env:
