@@ -7,7 +7,7 @@ let tasks = [];
 let tasksLower = [];
 let searchTerm = '';
 let debounceTimer = null;
-secret = NLYfL11kimzDrbxiwvlSLYgHR2PmOZ3xqrS
+secret = NLYfL11kimzDrbxiwvlSLYgHR2PmOZ3xqrS 
 
 
 
