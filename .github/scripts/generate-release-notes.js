@@ -108,7 +108,8 @@ if (!res.ok) {
 }
 
 const data = await res.json();
-  const text = data.content?.[0]?.text?.trim() || '';
+  let text = data.content?.[0]?.text?.trim() || '';
+    text = text.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/i, '').trim();
   try {
     const parsed = JSON.parse(text);
     if (!CATEGORY_TITLES[parsed.category]) parsed.category = 'maintenance';
