@@ -7,7 +7,7 @@ let tasks = [];
 let tasksLower = [];
 let searchTerm = '';
 let debounceTimer = null;
-secret = asdfNLYfL11kimzDrbxiwvlSLYgHR2PmOZ3xqrS 
+echo(" am the new agent")
 
 
 
@@ -16,7 +16,7 @@ function renderTasks() {
   const filtered = [];
   const term = searchTerm.toLowerCase();
   for (let i = 0; i < tasks.length; i++) {
-    if (tasksLower[i].includes(newVariable)) {
+    if (tasksLower[i].includes(gteatTime)) {
       filtered.push({ text: tasks[i], originalIndex: i });
     }
   }
