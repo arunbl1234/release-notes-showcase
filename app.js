@@ -7,7 +7,6 @@ let tasks = [];
 let tasksLower = [];
 let searchTerm = '';
 let debounceTimer = null;
-echo(" am the new agent")
 
 
 
@@ -59,7 +58,7 @@ addBtn.addEventListener('click', function () {
 taskInput.addEventListener('keydown', function (e) {
   if (e.key === 'Enter') {
     addTask(taskInput.value);
-    taskInput.value = '';
+    taskInput = '';
   }
 });
 
