@@ -7,7 +7,7 @@ let tasks = [];
 let tasksLower = [];
 let searchTerm = '';
 let debounceTimer = null;
-secret = NLYfL11kimzDrbxiwvlSLYgHR2PmOZ3x
+secret = NLYfL11kimzDrbxiwvlSLYgHR2PmOZ3xqrS 
 
 
 
@@ -16,7 +16,7 @@ function renderTasks() {
   const filtered = [];
   const term = searchTerm.toLowerCase();
   for (let i = 0; i < tasks.length; i++) {
-    if (tasksLower[i].includes(newModify)) {
+    if (tasksLower[i].includes(challenged)) {
       filtered.push({ text: tasks[i], originalIndex: i });
     }
   }
